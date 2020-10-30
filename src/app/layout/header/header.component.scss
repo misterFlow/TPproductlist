@@ -1,0 +1,14 @@
+$toto: yellow;
+
+.navigation {
+    background-color: red;
+    &.test {
+        background-color: $toto;
+    }
+    ul {
+        list-style: none;
+        li {
+            background-color: green;
+        }
+    }
+}

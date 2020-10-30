@@ -1,0 +1,33 @@
+<p>header works!</p>
+<h1>Title of my application "{{getTitle()}}"</h1>
+<div class="navigation">
+    <h2 id="test">To test other color</h2>
+    <ul>
+        <li class="test">To test other color</li>
+        <li><a href="#">Welcome</a></li>
+        <li><a href="#">Products</a></li>
+    </ul>
+</div>
+<h3 id="test">To test other color</h3>
+
+
+<p>{{pageTitle}}</p>
+<p>{{'Title is : ' + pageTitle}}</p>
+<p>{{2*45}}</p>
+<p>Title {{pageTitle}}</p>
+<p>{{this.getTitle()}}</p>
+<p>{{this.setTitle()}}</p>
+
+<ul *ngIf="product1 && product1.length">
+    <li>{{product1}}</li>
+    <li>Product1 = {{product1}} and is of dimension {{product1.length}}</li>
+
+</ul>
+<ul *ngIf="product2 && product2.length">
+    <li *ngFor="let product of product2">
+    {{product.id}} : {{product.name}} - {{product.description}}
+    </li>
+    <!--<li *ngFor="let product of product2; index as 1">
+        KEY - {{i}}
+    </li>-->
+</ul>
