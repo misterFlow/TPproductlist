@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of getFilteredProducts">
+            <tr *ngFor="let product of getFilteredProducts()">
                 <td>{{product.id}}</td>
                 <td *ngIf="displayImage"><img src={{product.imageUrl}} width="30px" /></td> <!-- [src] = "product.imageUrl" -->
                 <td>{{product.productName}}</td>
