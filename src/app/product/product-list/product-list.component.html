@@ -3,7 +3,7 @@
 <div class="filter-form">
     <label for="search">Search : </label>
     <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="Filter Products">
-    {{searchTerm}} <!--affiche à droite de la searchbox ce qui y est tapé-->
+    {{date}} - {{searchTerm}} <!--affiche à droite de la searchbox ce qui y est tapé-->
 </div>
 <div>
     <button (click)="toggleImage()">Show/Hide Images</button>
@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of getFilteredProducts()">
+            <tr *ngFor="let product of products | productSearch:searchTerm">
                 <td>{{product.id}}</td>
                 <td *ngIf="displayImage"><img src={{product.imageUrl}} width="30px" /></td> <!-- [src] = "product.imageUrl" -->
                 <td>{{product.productName}}</td>
@@ -29,7 +29,8 @@
                 <td>{{product.releaseDate}}</td>
                 <td>{{product.description}}</td>
                 <td>{{product.price}}</td>
-                <td>{{product.starRating}}</td>
+                <!--<td>{{product.starRating}}</td>-->
+                <td><app-star [(rating)]="product.starRating"></app-star></td>
             </tr>
         </tbody>
     </table>

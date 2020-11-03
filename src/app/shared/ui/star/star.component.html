@@ -1,1 +1,2 @@
-<p>star works!</p>
+{{rating}}
+<div *ngFor="let value of [1,2,3,4,5]" [class.filled]="rating >= value" (click)="onClick(value)"></div> <!-- compare en boucle value des données du tableau [1,2,3,4,5] et ajoute l'étoile si la note (value) est supérieure, et ajout du click sur l'étoile-->

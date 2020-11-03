@@ -16,6 +16,7 @@ export interface IProduct {
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  public date : Date = new Date;
   public searchTerm : string ="";
   public displayImage: boolean = true;
   public products : IProduct[] = [
