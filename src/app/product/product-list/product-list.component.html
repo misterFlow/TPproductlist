@@ -5,8 +5,14 @@
     <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="Filter Products">
     {{date}} - {{searchTerm}} <!--affiche à droite de la searchbox ce qui y est tapé-->
 </div>
-<div>
-    <button (click)="toggleImage()">Show/Hide Images</button>
+<div *ngIf="products$ | async as products">
+    <button (click)="toggleImage()">
+        <span *ngIf="displayImage; else noImage">Hide</span>
+        <ng-template #noImage>
+            Show
+        </ng-template>
+        images
+    </button>
     <table *ngIf="products.length > 0; else noProductTemplate">
         <thead>
             <tr>
@@ -38,10 +44,14 @@
         <h4>No product available!</h4>
     </ng-template>
 </div>
+<div>
+    <button (click)="refreshProducts()">Refresh products</button>
+</div>
 
-<h3>Product List (as a list)</h3>
+<!--<h3>Product List (as a list)</h3>
 <ul *ngIf="products && products.length">
     <li *ngFor="let product of products">
     {{product.id}} : {{product.productName}} - {{product.productCode}} - {{product.releaseDate}} - {{product.description}} - {{product.price}} - {{product.starRating}} - {{product.imageUrl}}
     </li>
 </ul>
+-->
