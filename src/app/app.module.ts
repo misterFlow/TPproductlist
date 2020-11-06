@@ -12,6 +12,8 @@ import { ProductPipe } from './src/app/product.pipe';
 import { ProductSearchPipe } from './product/product-search.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { ProductComponent } from './product/product.component';
     WelcomeComponent,
     ProductPipe,
     ProductSearchPipe,
-    ProductComponent
+    ProductComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

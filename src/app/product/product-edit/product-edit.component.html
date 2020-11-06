@@ -1,0 +1,57 @@
+<div>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label>
+                id: <input id="id" type="number" formControlName="id"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                productName: <input id="productName" required type="text" formControlName="productName"/>
+            </label>
+        </p>
+        <div *ngIf="productForm.get('productName').invalid && (productForm.get('productName').dirty || productForm.get('productName').touched)">
+            <div *ngIf="productForm.get('productName').errors.required">
+                Name is required
+            </div>
+            <div *ngIf="productForm.get('productName').errors.minlength as minlength">
+                Name should be at least {{ minlength.requiredLength }} (actual: {{ minlength.actualLength  }})
+            </div>
+            <div *ngIf="productForm.get('productName').errors.maxlength as maxlength">
+                Name should be at least {{ maxlength.requiredLength }} max length (actual: {{ maxlength.actualLength }})
+            </div>
+        </div>
+        <p>
+            <label>
+                producCode: <input id="productCode" type="text" formControlName="productCode"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                releaseDate: <input id="releaseDate" type="text" formControlName="releaseDate"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                description: <input id="description" type="text" formControlName="description"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                price: <input id="price" type="number" formControlName="price"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                starRating: <input id="starRating" type="number" formControlName="starRating"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                imageUrl: <input id="imageUrl" type="text" formControlName="imageUrl"/>
+            </label>
+        </p>
+        <button type="submit" [disabled]="productForm.invalid">Save the product</button> <!--attribut  disabled de html bindé-->
+    </form>
+    <!-- {{ productForm.value || json }}-->
+</div>
