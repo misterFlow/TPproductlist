@@ -36,4 +36,10 @@ private products$: Observable<Product[]> = this._products.asObservable();
     // return [...this.productsFromAPI]; //do the same returning a clone version
   }
 
+  public getProductById$(id: number): Observable<Product> {
+    console.log(id);
+    return this.products$.pipe(
+      map(products => products.find(product => product.id ===id))
+    )
+  }
 }

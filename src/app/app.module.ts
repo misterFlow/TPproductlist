@@ -11,6 +11,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ProductPipe } from './src/app/product.pipe';
 import { ProductSearchPipe } from './product/product-search.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     StarComponent,
     WelcomeComponent,
     ProductPipe,
-    ProductSearchPipe
+    ProductSearchPipe,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
